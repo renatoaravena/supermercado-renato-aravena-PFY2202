@@ -1,0 +1,67 @@
+.App-header {
+  background-color: #3e69b9;
+  color: white;
+  padding: 10px 20px;
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 22px;
+}
+
+/* Espacio abajo para que el menú fijo no tape el contenido */
+.contenido {
+  padding: 20px;
+  padding-bottom: 80px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #e8f5e9;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  gap: 6px;
+}
+
+.formulario button {
+  margin-top: 10px;
+  padding: 8px;
+}
+
+/* Menú inferior fijo */
+.menu-inferior {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  background-color: #3e69b9;
+}
+
+.menu-inferior a {
+  flex: 1;
+  text-align: center;
+  padding: 15px 5px;
+  color: white;
+  text-decoration: none;
+}
+
+.menu-inferior a:hover {
+  background-color: #3c83b3;
+}
