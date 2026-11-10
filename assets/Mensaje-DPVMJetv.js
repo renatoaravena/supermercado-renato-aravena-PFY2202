@@ -1,0 +1,1 @@
+import{j as t}from"./index-D-gvzLHV.js";const o={error:"border-red-300 bg-red-50 text-red-700",exito:"border-green-300 bg-green-50 text-green-700",info:"border-gray-300 bg-white text-gray-700"};function n({tipo:e="info",children:r}){return t.jsx("div",{role:e==="error"?"alert":"status",className:`rounded border p-3 text-sm ${o[e]}`,children:r})}export{n as M};

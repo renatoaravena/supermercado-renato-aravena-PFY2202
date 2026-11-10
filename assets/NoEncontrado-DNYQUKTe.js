@@ -1,0 +1,1 @@
+import{j as a,L as n}from"./index-D-gvzLHV.js";function t(){return a.jsxs("div",{className:"space-y-4",children:[a.jsx("h1",{className:"text-2xl font-bold text-gray-900",children:"Página no encontrada"}),a.jsx(n,{to:"/",className:"btn-primary",children:"Volver al inicio"})]})}export{t as default};
