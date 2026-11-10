@@ -1,41 +1,60 @@
-# Supermercado - Gestión de inventario (PFY2202)
+# Supermercado - Gestión de inventario
 
-Sitio web de inventario de un supermercado hecho con React, React Router y Tailwind CSS.
+**Asignatura:** Desarrollo Frontend II (PFY2202)
+**Actividad:** Semana 3 - Desarrollando sitios web con React avanzado (evaluación sumativa, forma B)
+**Autor:** Nombre Apellido
+**Sitio publicado:** https://TU-USUARIO.github.io/supermercado-nombre-apellido-PFY2202
+
+## Descripción
+
+Sitio web de gestión de inventario de un supermercado. Continúa la actividad formativa 2 (agregar y listar artículos) y suma filtro por categoría, detalle de artículo y carrito de compras, que descuenta y devuelve stock en tiempo real.
 
 ## Funcionalidades
-- Listado de artículos con filtro por categoría (los datos originales no se modifican).
-- Agregar nuevos artículos con validación de formulario.
-- Detalle de artículo con botón "Agregar al carrito" (descuenta el stock).
-- Carrito: aumentar, disminuir y quitar artículos; el inventario se actualiza en cada cambio.
-- Los datos se guardan en `localStorage`.
+
+| Pantalla | Ruta | Descripción |
+|---|---|---|
+| Inventario | `/` | Artículos agrupados por categoría (Lácteos, Carnes, etc.) con filtro por categoría. El filtro no modifica los datos originales. |
+| Agregar artículo | `/agregar` | Formulario con validaciones (nombre, categoría, precio y stock). Rechaza nombres duplicados. |
+| Detalle | `/articulo/:articuloId` | Muestra la información del artículo y permite agregarlo al carrito, descontando stock. |
+| Carrito | `/carrito` | Lista los artículos agregados. Permite aumentar, disminuir y quitar unidades, y finalizar la compra. El inventario se actualiza en cada cambio. |
+
+Reglas de stock:
+- Agregar o aumentar una unidad en el carrito descuenta 1 del inventario.
+- Disminuir o quitar devuelve el stock al inventario.
+- No se puede superar el stock disponible ni agregar artículos agotados.
+- Finalizar compra vacía el carrito sin devolver stock.
+
+Los datos se guardan en `localStorage`, por lo que se mantienen al recargar la página.
 
 ## Tecnologías
-React 18, React Router 6 (rutas anidadas y lazy loading), Context + useReducer, Tailwind CSS, Vite, Vitest.
 
-## Estructura
+- React 18 y React Router 6 (rutas centralizadas, anidadas, con parámetros dinámicos y lazy loading)
+- Context API y `useReducer` para el estado global
+- Tailwind CSS (tema propio y clases reutilizables con `@apply`)
+- Vite, Vitest y Testing Library
+
+## Estructura del proyecto
+
 ```
 src/
-  components/  Layout, ArticuloCard, FiltroCategoria, LineaCarrito, CampoFormulario, Mensaje
+  components/  Layout, ArticuloCard, SeccionCategoria, FiltroCategoria,
+               LineaCarrito, CampoFormulario, Mensaje
   pages/       Inventario, AgregarArticulo, DetalleArticulo, Carrito, NoEncontrado
-  routes/      AppRoutes.jsx (rutas centralizadas)
+  routes/      AppRoutes.jsx
   context/     InventarioContext.jsx
   reducers/    inventarioReducer.js
-  utils/       validaciones.js, storage.js
+  utils/       inventario.js, validaciones.js, storage.js
   data/        inventarioInicial.js
-  test/        pruebas
+  test/        pruebas unitarias y de componentes
 ```
 
 ## Cómo ejecutarlo
+
+Requiere Node.js instalado.
+
 ```bash
-npm install
-npm run dev      # desarrollo
-npm test         # pruebas
-npm run build    # compilar
+npm install      # instalar dependencias
+npm run dev      # servidor de desarrollo (http://localhost:5173)
+npm test         # ejecutar pruebas
+npm run build    # generar versión de producción
 ```
-
-## Publicación en GitHub Pages
-1. Cambia `homepage` en `package.json` por `https://TU-USUARIO.github.io/supermercado-nombre-apellido-PFY2202`.
-2. Ejecuta `npm run deploy` (crea la rama `gh-pages`).
-3. En GitHub: Settings → Pages → rama `gh-pages`.
-
-Se usa `HashRouter` para que las rutas funcionen en GitHub Pages.

@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://TU-USUARIO.github.io/supermercado-nombre-apellido-PFY2202",
+  "homepage": "https://renatoaravena.github.io/supermercado-renato-aravena-PFY2202",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
